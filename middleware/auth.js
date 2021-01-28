@@ -15,10 +15,6 @@ let auth = (req, res, next) => {
     req.user = user;
     next(); // middleware에서 벗어날 수 있도록
   });
-
-  // 유저가 있으면 인증 ok
-
-  // 유저가 없으면 인증 no
 };
 
 module.exports = { auth };
