@@ -6,6 +6,15 @@ const { User } = require("./models/User");
 const { auth } = require("./middleware/auth");
 const cookieParser = require("cookie-parser");
 const config = require("./config/key");
+// const cors = require("cors");
+// const cors_origin = [`http://localhost:3000`];
+
+// app.use(
+//   cors({
+//     origin: cors_origin, // 허락하고자 하는 요청 주소
+//     credentials: true, // true로 하면 설정한 내용을 response 헤더에 추가 해줍니다.
+//   })
+// );
 
 // application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,9 +36,7 @@ mongoose
 
 app.get("/", (req, res) => res.send("Hello gg!"));
 
-app.get("/api/hello", (req, res) => {
-  res.send("안녕하세요~");
-});
+app.get("/api/hello", (req, res) => res.send("hello~"));
 
 app.post("/api/users/register", (req, res) => {
   // 회원 가입 할 때 필요한 정보들을 client에서 가져오면 그것들을 데이터 베이스에 넣어준다.
